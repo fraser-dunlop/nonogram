@@ -1,0 +1,64 @@
+name:                nonogram
+version:             0.1.0.0
+github:              "fraser-dunlop/nonogram"
+license:             BSD3
+author:              "Fraser Dunlop"
+maintainer:          "fraser.dunlop@gmail.com"
+copyright:           "2018 Fraser Dunlop"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Development
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/fraser-dunlop/nonogram#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- JuicyPixels
+- JuicyPixels-extra
+- bytestring
+- parsec 
+- yesod
+- yesod-websockets
+- text
+- stm-lifted
+- conduit
+- transformers 
+- base64-bytestring
+- aeson
+- unordered-containers
+- shakespeare
+- matrix
+
+
+library:
+  source-dirs: src
+
+executables:
+  nonogram-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - nonogram
+
+tests:
+  nonogram-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - nonogram
